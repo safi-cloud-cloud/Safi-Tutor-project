@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Subject Tutor Helper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="app-header">
+      <div class="container header-row">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">ST</div>
+          <div class="brand-text">
+            <div class="brand-title">Subject Tutor Helper</div>
+            <div class="brand-subtitle">Set your subject, then ask questions</div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-ghost" type="button">
+            <span id="themeIcon" class="btn-icon" aria-hidden="true">☾</span>
+            <span id="themeLabel">Dark</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="container main-grid">
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Your learning setup</h2>
+          <p class="card-subtitle">
+            Choose a subject, your current grade/course, and what you’re working on.
+          </p>
+        </div>
+
+        <form id="profileForm" class="form">
+          <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject" required>
+              <option value="" disabled selected>Select a subject…</option>
+              <option>Mathematics</option>
+              <option>Physics</option>
+              <option>Chemistry</option>
+              <option>Biology</option>
+              <option>English</option>
+              <option>History</option>
+              <option>Geography</option>
+              <option>Computer Science</option>
+              <option>Economics</option>
+              <option>Accounting</option>
+              <option>Business Studies</option>
+              <option>Languages</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="gradeCourse">Grade / Course</label>
+            <input
+              id="gradeCourse"
+              type="text"
+              inputmode="text"
+              autocomplete="off"
+              placeholder="e.g., Grade 10, IGCSE, BSc CS Sem 2…"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="" disabled selected>Pick one…</option>
+              <option value="exam">Exams</option>
+              <option value="test">Tests</option>
+              <option value="assignment">Assignments</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-primary" type="submit">
+              <span class="btn-icon" aria-hidden="true">✓</span>
+              Save setup
+            </button>
+            <button id="resetProfile" class="btn btn-ghost" type="button">Reset</button>
+          </div>
+        </form>
+
+        <div class="divider" role="separator" aria-hidden="true"></div>
+
+        <div class="profile-summary">
+          <div class="summary-title">Current setup</div>
+          <div id="profileSummary" class="summary-text">Not set yet.</div>
+          <div class="row">
+            <button id="newChat" class="btn btn-secondary" type="button">New chat</button>
+            <button id="clearChat" class="btn btn-ghost" type="button">Clear chat</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card chat-card" aria-label="Tutor chatbot">
+        <div class="card-header">
+          <h2 class="card-title">Tutor chatbot</h2>
+          <p class="card-subtitle">
+            Ask a question and I’ll answer using your subject + grade/course + category.
+          </p>
+        </div>
+
+        <div id="messages" class="messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+        <div class="suggestions">
+          <div class="suggestions-title">Try asking</div>
+          <div id="suggestionChips" class="chips"></div>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <label class="sr-only" for="chatInput">Your question</label>
+          <textarea
+            id="chatInput"
+            rows="2"
+            placeholder="Type your question… (Enter to send, Shift+Enter for new line)"
+            required
+          ></textarea>
+          <button id="sendBtn" class="btn btn-primary" type="submit">
+            <span class="btn-icon" aria-hidden="true">➤</span>
+            Send
+          </button>
+        </form>
+
+        <p class="fineprint">
+          Tip: include the topic name (e.g., “quadratic equations”, “photosynthesis”, “essay structure”) for better answers.
+        </p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="container footer-row">
+        <span>Subject Tutor Helper</span>
+        <span class="muted">Works offline (no API key required)</span>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
